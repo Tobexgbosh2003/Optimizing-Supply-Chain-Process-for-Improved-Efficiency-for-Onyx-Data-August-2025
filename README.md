@@ -2,34 +2,34 @@
 Title: Supply Chain Analysis
 
 CREATE TABLE supplychain_sample (
-	Product_type varchar(20),	
-	SKU	varchar(10),
-	Price float,
-	Availability int,	
-	Number_of_products_sold	 int,
-	Revenue_generated float,	
-	Customer_demographics varchar(20),
-	Stock_levels int,	
-	Lead_times	int,
-	Order_quantities int,	
-	Shipping_times int,	
-	Shipping_carriers varchar(20),
-	Shipping_costs	float,
-	Supplier_name	varchar(20),
-	Location	varchar(20),
-	Latitide	float,
-	Longitude	float,
-	Lead_time	int,
-	Production_volumes	int,
-	Manufacturing_lead_time	int,
-	Manufacturing_costs	float,
-	Inspection_results varchar(20),	
-	Defect_rates float,	
-	Transportation_modes varchar(10),	
-	Routes	varchar(20),
-	Costs float
-	);
-    
+    Product_type             VARCHAR(20),
+    SKU                      VARCHAR(10),
+    Price                    FLOAT,
+    Availability             INT,
+    Number_of_products_sold  INT,
+    Revenue_generated        FLOAT,
+    Customer_demographics    VARCHAR(20),
+    Stock_levels             INT,
+    Lead_times               INT,
+    Order_quantities         INT,
+    Shipping_times           INT,
+    Shipping_carriers        VARCHAR(20),
+    Shipping_costs           FLOAT,
+    Supplier_name            VARCHAR(20),
+    Location                 VARCHAR(20),
+    Latitide                 FLOAT,   -- typo? should be Latitude
+    Longitude                FLOAT,
+    Lead_time                INT,
+    Production_volumes       INT,
+    Manufacturing_lead_time  INT,
+    Manufacturing_costs      FLOAT,
+    Inspection_results       VARCHAR(20),
+    Defect_rates             FLOAT,
+    Transportation_modes     VARCHAR(10),
+    Routes                   VARCHAR(20),
+    Costs                    FLOAT
+);
+
 select * 
 from supplychain_sample;
   
@@ -37,35 +37,35 @@ from supplychain_sample;
   -- EDA
   
   -- problem statement
-  -- 1. what are the most frequently ordered products?
   
-  select product_type, count(Number_of_products_sold) as Total_prd
-  from supplychain_sample
-  group by product_type
-  order by 2 desc;
-  
-  -- 2. what is the total value of inventory on hand 
-  
-  SELECT 
+-- 1. Most frequently ordered products
+SELECT 
+    product_type, 
+    COUNT(number_of_products_sold) AS total_prd
+FROM supplychain_sample
+GROUP BY product_type
+ORDER BY total_prd DESC;
+
+
+-- 2. Total value of inventory on hand
+SELECT 
     product_type, 
     CEIL(SUM(stock_levels * price)) AS inventory_value
 FROM supplychain_sample
 GROUP BY product_type
-ORDER BY inventory_value DESC;
+ORDER BY inventory_value DESC;    
+
+-- 3. Suppliers with the highest average delivery time
+SELECT  
+    supplier_name, 
+    ROUND(AVG(lead_times), 3) AS avg_delivery_time
+FROM supplychain_sample
+GROUP BY supplier_name
+ORDER BY avg_delivery_time DESC
+LIMIT 2;
 
   
-  
-  -- 3. which supplier has the highest average delivery time
-  
-  select  distinct Supplier_name, round(avg(Lead_times),3) as AV_DT
-  from supplychain_sample
-  group by 1
-  order by 2 desc 
-  limit 2
-  ;
-  
-  -- 4. what is the average cost per unit for each supplier?
-  
+-- 4. Average cost per unit for each supplier
 SELECT 
     supplier_name, 
     CEIL(AVG(manufacturing_costs)) AS avg_cost
@@ -73,15 +73,13 @@ FROM supplychain_sample
 GROUP BY supplier_name
 ORDER BY avg_cost DESC;
 
-
--- which supplier has the highest defect rate?
-
-select 
-	supplier_name, 
-    ceil(SUM(defect_rates)) as Total_defects
-    FROM supplychain_sample
+-- 5. Supplier with the highest defect rate
+SELECT 
+    supplier_name, 
+    CEIL(SUM(defect_rates)) AS total_defects
+FROM supplychain_sample
 GROUP BY supplier_name
-ORDER BY 2 DESC;
+ORDER BY total_defects DESC;
 
 
 -- As a CTE
