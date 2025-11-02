@@ -1,69 +1,82 @@
-Optimizing Supply Chain Process for Improved Efficiency for Onyx Data, August 202r5
-Title: Supply Chain Analysis
+Optimizing Supply Chain Process for Improved Efficiency – Onyx Data (August  2025)
 Project Overview
-This data analysis reveals a transparent view of the dataset showcasing supply chain performance from production to distribution. This will aid stakeholders in optimizing supply processes and making more informed decisions. I have curated two well-detailed and interactive dashboards that provide insights into products, supplier performance, logistics, and inventory trends.
 
-Data Source:
-Onyx Data provided this dataset via their LinkedIn profile. It contained 26 columns and 100 rows. Dataset
+This project provides a detailed analysis of Onyx Data’s supply chain dataset, offering transparency into operations from production to distribution. The aim was to uncover actionable insights that help stakeholders improve supply chain efficiency, reduce costs, and enhance decision-making.
 
-Tools:
-Power Query in Power BI: Data cleaning and formatting.
-Excerpt of Uncleaned Dataset:
+The analysis was conducted using Structured Query Language (SQL) for data exploration and performance tracking, complemented by Power BI for dashboard visualization.
 
-Excerpt of Uncleaned Dataset
-Excerpt of Cleaned Dataset:
+Data Source
 
-Excerpt of Cleaned Dataset
-Power BI: Visualization.
-Data Processing:
-I deployed Power BI DAX's functionality to track total KPI metrics amongst essential data fields such as product type and Shipping carriers.
+The dataset was sourced from Onyx Data’s official LinkedIn page. It contains 26 columns and 100 rows, covering multiple facets of the supply chain, such as product details, suppliers, logistics, and customer demographics.
 
-Data Analysis:
-Overview: I have identified key revenue drivers, including product performance, customer demographics, SKU performance, to gain a clear understanding of inventory trends and availability.
+Tools Used
 
-Supplier and Logistics: This analysis uncovered supplier performance, shipping analysis and transportation modes.
+SQL (MySQL / PostgreSQL): For data cleaning, querying, and analysis.
 
-Dashboard:
-Overview:
+Power BI: For building interactive dashboards and visual summaries.
 
-Overview Dashboard
-Supplier & Logistics:
+Power Query: For preprocessing, data formatting, and integration with Power BI.
 
-Supplier Logistictics Dasboard
-Key Findings:
-Total revenue generated was 577.60k.
+Data Preparation & SQL Analysis
 
-Product type: Skincare products generated 40% with 241.63k of the revenue which is the highest compared to haircare's 30% and cosmetics 28%. It also has the highest defect rate, requiring quality control improvements.
+I created and structured the supply chain database using SQL, beginning with a custom table schema that included key metrics such as product type, supplier name, transportation mode, manufacturing cost, and defect rate.
 
-Geographically, Mumbai generates the highest revenue with over 138k.
+I then ran a series of Exploratory Data Analysis (EDA) queries to answer critical business questions such as:
 
-Customer Demographics: Female Customers contributes the majority of revenue.
+Which products and SKUs drive the highest revenue?
 
-Manufacturing cost: Skincare products cost more to produce with over 41% gap.
+Which supplier delivers the most consistent performance?
 
-SKU Performance: SKU 51,38,31,90, 2.. generates the highest revenue in this top 5 hierarchy.
+What are the most cost-effective transportation modes and routes?
 
-Inventory: The stock level totaled to 4,777 units with an average lead time of 16 days. Adequate marketing strategies should be implemented to bridge or minimize the gap between product volumes and product sold.
+How do manufacturing and shipping costs impact profitability?
 
-Inspection Result: Skincare products and Supplier 1 records the most number of passes and proves to be more viable.
+Each query was designed to extract operational insights and performance indicators across the supply chain lifecycle.
 
-Supplier Performance: Supplier 1 generates the most revenue, has the highest lead time variation, which could impact delivery times and customer satisfaction.
+Power BI Visualization
 
-Logistics: Total shipping cost equals 554.81 with Carrier A having the highest shipping costs, suggesting a need for cost optimization strategies.
+After executing and validating the SQL queries, I connected the processed data to Power BI to create two interactive dashboards:
 
-Road is the most preferred transportation mode by customers, but it also has the highest average shipping cost.
+Overview Dashboard: Displays product performance, revenue distribution, customer segments, and geographic insights.
 
-Recommendations:
-By implementing the following recommended actions, the company can optimize its supply chain, improve customer satisfaction, and drive revenue growth:
+Supplier & Logistics Dashboard: Highlights supplier performance, logistics efficiency, lead time variation, and shipping cost trends.
 
-Products with more sales should always be in stock to boost revenue.
+Key Findings
 
-Locations with lower sales and revenue may require localized marketing or distribution strategies.
+Total Revenue: ₦577.60K
 
-Explore alternative suppliers to reduce reliance on Supplier 1.
+Product Category: Skincare products generated 40% ($241.63K) of total revenue, outperforming Haircare (30%) and Cosmetics (28%). However, skincare also showed the highest defect rate, signaling quality control issues.
 
-Prioritize timely deliveries to improve customer satisfaction.
+Geographic Insights: Mumbai contributed the highest revenue with over ₦138K.
 
-Optimize delivery routes and prioritize Carrier C to minimize transportation costs and delivery time.
+Customer Demographics: Female customers drove the majority of total sales.
 
-Implement quality improvement initiatives like waste management to reduce defect rates.
+Manufacturing Cost: Skincare products incurred the highest production cost (41% higher) than others.
+
+Top Performing SKUs: SKUs 51, 38, 31, 90, and 2 ranked as the top 5 revenue contributors.
+
+Inventory: Total stock stood at 4,777 units, with an average lead time of 16 days — indicating room to improve turnover rates.
+
+Supplier Insights: Supplier 1 generated the highest revenue but exhibited significant lead time variation, which could affect customer satisfaction.
+
+Logistics:
+
+Total shipping cost amounted to $554.81, with Carrier A being the most expensive.
+
+Road transport was the most preferred mode but also had the highest average cost per shipment.
+
+Recommendations
+
+To optimize supply chain performance, the following actions are suggested:
+
+Maintain consistent stock levels for top-performing products to prevent revenue loss.
+
+Target low-performing regions with localized marketing strategies.
+
+Diversify supplier base to reduce dependence on Supplier 1.
+
+Prioritize timely deliveries to enhance customer satisfaction.
+
+Optimize delivery routes and leverage Carrier C for cost efficiency.
+
+Introduce quality improvement and waste reduction programs to lower defect rates.
