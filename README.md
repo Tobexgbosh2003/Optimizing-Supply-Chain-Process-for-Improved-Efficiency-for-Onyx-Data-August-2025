@@ -43,7 +43,7 @@ Supplier & Logistics Dashboard: Highlights supplier performance, logistics effic
 
 Key Findings
 
-Total Revenue: ₦577.60K
+Total Revenue: $577.60K
 
 Product Category: Skincare products generated 40% ($241.63K) of total revenue, outperforming Haircare (30%) and Cosmetics (28%). However, skincare also showed the highest defect rate, signaling quality control issues.
 
